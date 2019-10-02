@@ -1,0 +1,2 @@
+# redis_python
+主要是封装python常用的一些redis缓存
