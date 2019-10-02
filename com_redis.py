@@ -5,12 +5,6 @@ from django.conf import settings
 from simplejson.encoder import JSONEncoder
 
 
-OUR_REDIS = redis.Redis(
-            host=settings.REDIS_HOST,
-            port=settings.REDIS_PORT,
-            db=settings.REDIS_DB,
-            password=settings.REDIS_PASSWORD,
-        )
 
 class XJSONEncoder(JSONEncoder):
     """
@@ -91,7 +85,7 @@ class CacheProxy:
         :param alias: 缓存别名
         :param action: 操作缓存 get add delete update
         """
-        self.r = OUR_REDIS
+        self.r = r
         self.prefix = alias
         self.timeout = 0
         self.action = action
